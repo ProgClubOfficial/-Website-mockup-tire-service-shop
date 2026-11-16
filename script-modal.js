@@ -137,7 +137,7 @@
     };
 
     try {
-      const resp = await fetch("https://server-mockup-tire-service-shop-1.onrender.com/", {
+      const resp = await fetch("https://server-mockup-tire-service-shop-1.onrender.com/api/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
