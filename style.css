@@ -840,37 +840,13 @@ body.modal-open {
   color: #e71717;
 }
 
-/* Бургер не нужен на десктопе */
 @media (min-width: 751px) {
   .header .nav .menu-btn {
     display: none;
   }
 }
 
-/* БЛОК-8 Медиазапросы */
-
-@media (max-width: 500px) {
-  .modal {
-    padding: 28px 20px 24px;
-    border-radius: 20px;
-  }
-  .modal-title {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 750px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
+/* БЛОК-8 Адаптация */
 
 @media (max-width: 900px) {
   .header .services {
@@ -879,14 +855,46 @@ body.modal-open {
 }
 
 @media (max-width: 750px) {
+  .hero-container {
+    padding: 12px 10px;
+  }
+
+  .hero-container .hero-text {
+    padding: 24px 20px 28px;
+    min-height: 420px;
+    border-radius: 24px;
+    gap: 10px;
+  }
+
+  .hero-container .hero-text h1 {
+    font-size: 28px;
+    max-width: 100%;
+    line-height: 1.2;
+  }
+
+  .hero-container .hero-text h1 .hero-address {
+    display: none;
+  }
+
+  .hero-container .hero-text .description {
+    font-size: 15px;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
+  .hero-container .hero-text button {
+    margin-top: 8px;
+    padding: 14px 24px;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  /* ===== Шапка ===== */
   .header {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
     width: 100%;
-  }
-  .footer-desc {
-    font-size: 18px;
   }
 
   .header .nav .nav-links,
@@ -912,22 +920,67 @@ body.modal-open {
     gap: 15px;
     width: auto;
   }
-  .map-wrapper iframe {
-    width: 100%;
-  }
+
+  /* ===== Карта ===== */
   .map-wrapper {
     flex-direction: column;
     justify-content: center;
     gap: 25px;
+    width: 100%;
   }
 
-  .map-wrapper {
+  .map-wrapper iframe {
     width: 100%;
-    justify-content: center;
+  }
+
+  /* ===== Футер ===== */
+  .footer-top {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .footer-desc {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 500px) {
+  /* ===== Заявка ===== */
+  .modal {
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .hero-container .hero-text {
+    min-height: 380px;
+    padding: 20px 16px 24px;
+    border-radius: 20px;
+  }
+
+  .hero-container .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .hero-container .hero-text .description {
+    font-size: 14px;
+  }
+
+  .hero-container .hero-text button {
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  /* ===== Шапка ===== */
   .header .logo-container .logo {
     font-size: 18px;
   }
@@ -943,8 +996,20 @@ body.modal-open {
 
   .header .request-btn {
     padding: 15px;
-    font-size: 15px;
     font-size: 14px;
+  }
+
+  /* ===== Услуги ===== */
+  .services-section .text-container {
+    width: 100%;
+  }
+
+  .services-section .text-container .title {
+    font-size: 28px;
+  }
+
+  .services-section .services-items {
+    grid-template-columns: 1fr;
   }
 }
 
