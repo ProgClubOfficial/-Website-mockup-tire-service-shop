@@ -63,6 +63,12 @@
   const phoneInput = document.getElementById("reqPhone");
   phoneInput.addEventListener("input", () => {
     let digits = phoneInput.value.replace(/\D/g, "");
+    
+    if (digits.length === 0) {
+      phoneInput.value = "";
+      return;
+    }
+
     if (digits.startsWith("8")) digits = "7" + digits.slice(1);
     if (!digits.startsWith("7")) digits = "7" + digits;
     digits = digits.slice(0, 11);
