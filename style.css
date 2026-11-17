@@ -506,9 +506,14 @@ hr {
 }
 
 .footer-bottom .dev-credit {
-  margin: 0 auto;
-  color: #00000060;
-  font-size: 13px;
+  color: #000000;
+  font-weight: 600;
+  text-decoration: dotted;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom .dev-credit:hover {
+  color: #e71717; 
 }
 
 .footer-top {
