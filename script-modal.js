@@ -126,21 +126,28 @@
   // Отправка
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    
     status.textContent = "";
     status.className = "form-status";
 
     if (!validate()) return;
 
     const submitBtn = form.querySelector(".form-submit");
+    const originalBtnText = submitBtn.textContent;
+    
+    // Включаем режим загрузки
     submitBtn.disabled = true;
-    submitBtn.textContent = "Отправляем...";
+    submitBtn.classList.add("loading"); 
+    
+    status.textContent = "Отправляем заявку. Пожалуйста, подождите...";
+    status.classList.add("loading");
 
     const data = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      service: form.service.value,
-      comment: form.comment.value.trim(),
-      website: form.website?.value || "",
+      name: form.elements.name.value.trim(),
+      phone: form.elements.phone.value.trim(),
+      service: form.elements.service.value,
+      comment: form.elements.comment.value.trim(),
+      website: form.elements.website?.value || "",
     };
 
     try {
@@ -159,19 +166,24 @@
         throw new Error(result.error || "Ошибка отправки");
       }
 
-      status.textContent =
-        "Спасибо! Заявка отправлена — мы скоро свяжемся с вами.";
-      status.classList.add("success");
+      // УСПЕХ
+      status.className = "form-status success"; 
+      status.textContent = "Спасибо! Заявка отправлена — мы скоро свяжемся с вами.";
       form.reset();
+      
+      // Закрываем модалку через 2.5 секунды
       setTimeout(closeModal, 2500);
+
     } catch (err) {
       console.error(err);
-      status.textContent =
-        "Не удалось отправить. Позвоните нам: +7 (952) 089-36-38";
-      status.classList.add("error");
-    } finally {
+      // ОШИБКА
+      status.className = "form-status error"; 
+      status.textContent = "Не удалось отправить. Позвоните нам: +7 (952) 089-36-38";
+      
+    } finally 
       submitBtn.disabled = false;
-      submitBtn.textContent = "Отправить заявку";
+      submitBtn.classList.remove("loading");
+      submitBtn.textContent = originalBtnText;
     }
   });
 })();
