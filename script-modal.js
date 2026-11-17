@@ -134,14 +134,18 @@
       phone: form.phone.value.trim(),
       service: form.service.value,
       comment: form.comment.value.trim(),
+      website: form.website?.value || "",
     };
 
     try {
-      const resp = await fetch("https://server-mockup-tire-service-shop-1.onrender.com/api/request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+      const resp = await fetch(
+        "https://server-mockup-tire-service-shop-1.onrender.com/api/request",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        },
+      );
 
       const result = await resp.json();
 
