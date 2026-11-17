@@ -160,6 +160,11 @@
         },
       );
 
+      // Проверка на лимит запросов (429)
+      if (resp.status === 429) {
+        throw new Error("429");
+      }
+
       const result = await resp.json();
 
       if (!resp.ok || !result.ok) {
@@ -176,11 +181,18 @@
 
     } catch (err) {
       console.error(err);
-      // ОШИБКА
-      status.className = "form-status error"; 
-      status.textContent = "Не удалось отправить. Позвоните нам: +7 (952) 089-36-38";
       
-    } finally 
+      // Обработка ошибок
+      status.className = "form-status error"; 
+      
+      if (err.message === "429") {
+        status.textContent = "Слишком много заявок. Попробуйте через час или позвоните нам.";
+      } else {
+        status.textContent = "Не удалось отправить. Позвоните нам: +7 (952) 089-36-38";
+      }
+      
+    } finally {
+      // Возвращаем кнопку в исходное состояние (ТУТ БЫЛА ОШИБКА)
       submitBtn.disabled = false;
       submitBtn.classList.remove("loading");
       submitBtn.textContent = originalBtnText;
