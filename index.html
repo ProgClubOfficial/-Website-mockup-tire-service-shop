@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Экспресс Шинка — шиномонтаж в Твери" />
-    <meta property="og:description" content="Быстрая сезонная переобувка, балансировка и ремонт колес без лишних очередей." />
+    <meta
+      property="og:description"
+      content="Быстрая сезонная переобувка, балансировка и ремонт колес без лишних очередей."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://progclubofficial.github.io/-Website-mockup-tire-service-shop/" />
-    <meta property="og:image" content="https://progclubofficial.github.io/-Website-mockup-tire-service-shop/images/main.png" />
+    <meta
+      property="og:url"
+      content="https://progclubofficial.github.io/-Website-mockup-tire-service-shop/"
+    />
+    <meta
+      property="og:image"
+      content="https://progclubofficial.github.io/-Website-mockup-tire-service-shop/images/main.png"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Экспресс Шинка</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -301,7 +310,9 @@
         <hr class="footer-divider" />
         <div class="footer-bottom">
           <p>© 2026 «Экспресс Шинка». Все права защищены.</p>
-          <a href="https://t.me/CeTzyyy" class="dev-credit">Разработка: <strong>CeTzyyy</strong></a>
+          <a href="https://t.me/CeTzyyy" class="dev-credit"
+            >Разработка: <strong>CeTzyyy</strong></a
+          >
           <a href="privacy.html">Политика конфиденциальности</a>
         </div>
       </div>
@@ -416,12 +427,42 @@
         </form>
       </div>
     </div>
-        <!-- Кнопка Наверх -->
+    <!-- Кнопка Наверх -->
     <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Наверх">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 19V5M5 12l7-7 7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M12 19V5M5 12l7-7 7 7"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </button>
+
+    <script>
+      // Кнопка наверх
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      if (scrollTopBtn) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 500) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
     <script src="script-modal.js"></script>
     <script>
       window.addEventListener("load", function () {
