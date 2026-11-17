@@ -508,7 +508,7 @@ hr {
 .footer-bottom .dev-credit {
   color: #000000;
   font-weight: 600;
-  text-decoration: dotted;
+  text-decoration: underline dotted;
   transition: color 0.2s ease;
 }
 
