@@ -26,7 +26,6 @@
     document.body.classList.remove("modal-open");
   }
 
-  // Открытие модалки — только кнопки заявки
   document
     .querySelectorAll("[data-open-request], .request-btn, .cta-button")
     .forEach((btn) => {
@@ -135,7 +134,6 @@
     const submitBtn = form.querySelector(".form-submit");
     const originalBtnText = submitBtn.textContent;
     
-    // Включаем режим загрузки
     submitBtn.disabled = true;
     submitBtn.classList.add("loading"); 
     
@@ -160,7 +158,6 @@
         },
       );
 
-      // Проверка на лимит запросов (429)
       if (resp.status === 429) {
         throw new Error("429");
       }
@@ -171,12 +168,10 @@
         throw new Error(result.error || "Ошибка отправки");
       }
 
-      // УСПЕХ
       status.className = "form-status success"; 
       status.textContent = "Спасибо! Заявка отправлена — мы скоро свяжемся с вами.";
       form.reset();
       
-      // Закрываем модалку через 2.5 секунды
       setTimeout(closeModal, 2500);
 
     } catch (err) {
@@ -192,7 +187,6 @@
       }
       
     } finally {
-      // Возвращаем кнопку в исходное состояние (ТУТ БЫЛА ОШИБКА)
       submitBtn.disabled = false;
       submitBtn.classList.remove("loading");
       submitBtn.textContent = originalBtnText;
