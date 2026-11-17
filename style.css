@@ -794,6 +794,51 @@ hr {
     transform 0.15s ease;
 }
 
+.form-submit.loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.form-submit.loading::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+.form-status.loading {
+  color: #666;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-status.loading::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ccc;
+  border-top-color: #e71717;
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
 .form-submit:hover {
   background: #b51515;
 }
