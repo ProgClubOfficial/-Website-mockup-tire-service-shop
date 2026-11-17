@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -297,7 +297,7 @@
         <hr class="footer-divider" />
         <div class="footer-bottom">
           <p>© 2026 «Экспресс Шинка». Все права защищены.</p>
-          <a href="#privacy">Политика конфиденциальности</a>
+          <a href="privacy.html">Политика конфиденциальности</a>
         </div>
       </div>
     </footer>
@@ -328,6 +328,21 @@
               autocomplete="name"
               required
               minlength="2"
+            />
+            <!-- Honeypot: люди не видят, боты заполняют -->
+            <input
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              style="
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                opacity: 0;
+              "
+              aria-hidden="true"
             />
             <span class="form-error" data-error-for="reqName"></span>
           </div>
@@ -383,7 +398,7 @@
             <input type="checkbox" name="consent" required />
             <span>
               Согласен с
-              <a href="#privacy" target="_blank"
+              <a href="privacy.html" target="_blank"
                 >политикой конфиденциальности</a
               >
             </span>
